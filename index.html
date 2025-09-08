@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mechaflex Manual</title>
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@v0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.180.0/examples/jsm/"
+  }
+}
+    </script>
+      <link rel="stylesheet" href="style.css">
+      <link rel="icon" type="image/x-icon" href="favicon.png">
+  </head>
+  <body>
+    <div class="title-bar">
+        <div class="title-left">
+            <img src="Logo.png" alt="Logo" class="title-logo">
+            <span class="title-text">Kaleidoscope Cauldron Labs</span>
+        </div>
+        <div class="title-right">
+            <a href="https://www.kaleidoscopecauldronlabs.com">Back to main site</a>
+            <img src="Logo.png" alt="Logo" class="title-logo">
+        </div>
+    </div>
+
+
+
+<div class="page">
+    <div class="title">
+        <h1>Mechaflex 3D Instruction Manual</h1>
+    </div>
+    <div class="content">
+        <div id="canvas-container">
+            <div class="controls-panel" id="controls-panel" role="complementary" aria-label="Model controls">
+                <button class="panel-grabber" aria-expanded="true" aria-controls="controls-content">
+                    Hide Controls
+                </button>
+                <div id="controls-content">
+                    <h3>Colors</h3>
+                    <div class="color-input-group">
+                        <label for="frameColor">Background</label>
+                        <input type="color" id="backgroundColor" value="#3A2B4D">
+                    </div>
+                    <div class="color-input-group">
+                        <label for="armorColor">Armor</label>
+                        <input type="color" id="armorColor" value="#42ECA7">
+                    </div>
+                    <div class="color-input-group">
+                        <label for="frameColor">Frame</label>
+                        <input type="color" id="frameColor" value="#333333">
+                    </div>
+                    <div class="control-group">
+                        <label for="versionSelect" style="display:block;margin-bottom:6px;font-weight:600;">Version</label>
+                        <select id="versionSelect" style="width:100%;padding:6px 8px;border-radius:8px;background:#222;color:#fff;border:1px solid rgba(255,255,255,0.15)">
+                            <option value="miles" selected>Miles</option>
+                            <option value="frankie">Frankie</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">
+            <h2>Introduction</h2>
+            <p>This manual was designed to help you build your new Mechaflex model utilizing 3D models.</p>
+            <p>Right now you should see a fully assembled Mechaflex with hand storage and accessory storage.</p>
+            <p>Left-click to rotate the view, right-click to pan, and use the scroll wheel to zoom in and out.</p>
+            <p>In the upper left corner you will find the menu, which you can use to jump to different sections of this guide.</p>
+            <p>On the left side you will see an area to change the colors and version of the displayed model, as well as the background color.</p>
+            <p>At the bottom you will see buttons to navigate to the previous or next step.</p>
+        </div>
+    </div>
+</div>
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>
