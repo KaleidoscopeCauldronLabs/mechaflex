@@ -39,22 +39,29 @@
                     Hide Controls
                 </button>
                 <div id="controls-content">
-                    <h3>Colors</h3>
-                    <div class="color-input-group">
-                        <label for="frameColor">Background</label>
-                        <input type="color" id="backgroundColor" value="#3A2B4D">
+                    <div class="controls-content-inner">
+                       <h3>Navigation</h3>
+                        <select id="stepMenu" class="select-group">
+                        </select>
                     </div>
-                    <div class="color-input-group">
-                        <label for="armorColor">Armor</label>
-                        <input type="color" id="armorColor" value="#42ECA7">
+                    <div class="controls-content-inner">
+                        <h3>Colors</h3>
+                        <div class="color-input-group">
+                            <label for="backgroundColor">Background</label>
+                            <input type="color" id="backgroundColor" value="#3A2B4D">
+                        </div>
+                        <div class="color-input-group">
+                            <label for="armorColor">Armor</label>
+                            <input type="color" id="armorColor" value="#42ECA7">
+                        </div>
+                        <div class="color-input-group">
+                            <label for="frameColor">Frame</label>
+                            <input type="color" id="frameColor" value="#333333">
+                        </div>
                     </div>
-                    <div class="color-input-group">
-                        <label for="frameColor">Frame</label>
-                        <input type="color" id="frameColor" value="#333333">
-                    </div>
-                    <div class="control-group">
-                        <label for="versionSelect" style="display:block;margin-bottom:6px;font-weight:600;">Version</label>
-                        <select id="versionSelect" style="width:100%;padding:6px 8px;border-radius:8px;background:#222;color:#fff;border:1px solid rgba(255,255,255,0.15)">
+                    <div class="controls-content-inner">
+                        <h3>Version</h3>
+                        <select id="versionSelect" class="select-group">
                             <option value="miles" selected>Miles</option>
                             <option value="frankie">Frankie</option>
                         </select>
@@ -62,15 +69,12 @@
                 </div>
             </div>
         </div>
-        <div class="instructions">
-            <h2>Introduction</h2>
-            <p>This manual was designed to help you build your new Mechaflex model utilizing 3D models.</p>
-            <p>Right now you should see a fully assembled Mechaflex with hand storage and accessory storage.</p>
-            <p>Left-click to rotate the view, right-click to pan, and use the scroll wheel to zoom in and out.</p>
-            <p>In the upper left corner you will find the menu, which you can use to jump to different sections of this guide.</p>
-            <p>On the left side you will see an area to change the colors and version of the displayed model, as well as the background color.</p>
-            <p>At the bottom you will see buttons to navigate to the previous or next step.</p>
+        <div id="instructions">
         </div>
+    </div>
+    <div class="navigation">
+        <button id="previousButton">Previous</button>
+        <button id="nextButton">Next</button>
     </div>
 </div>
         <script type="module" src="main.js"></script>

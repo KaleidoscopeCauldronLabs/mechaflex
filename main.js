@@ -7,7 +7,35 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
  * -------------------------------------------------------------------------- */
 let scene, renderer, controls, model, ambientLight, directionalLight, directionalBackLight, pmrem, canvas;
 let camera = new THREE.PerspectiveCamera();
-const fileLocation = "./models/full.glb";
+
+
+/* --------------------------------------------------------------------------
+ * Steps
+ * -------------------------------------------------------------------------- */
+let currentStep = 0;
+const nextButton = document.getElementById("nextButton");
+nextButton.addEventListener("click", () => {
+     currentStep += 1;
+     refreshData();
+ });
+const previousButton = document.getElementById("previousButton");
+previousButton.addEventListener("click", () => {
+     currentStep -= 1;
+     refreshData();
+ });
+
+import { steps } from './steps.js';
+
+const stepMenu = document.getElementById("stepMenu");
+stepMenu.innerHTML = steps.map((step, i) =>
+    `<option value="${i}">${step.title}</option>`
+).join("");
+stepMenu.value = currentStep; // Set initial value
+
+stepMenu.addEventListener("change", (e) => {
+    currentStep = parseInt(e.target.value, 10);
+    refreshData();
+});
 
 /* --------------------------------------------------------------------------
  * Scene / Camera / Renderer Setup
@@ -71,6 +99,8 @@ function initLighting() {
 /* --------------------------------------------------------------------------
  * Model Loading
  * -------------------------------------------------------------------------- */
+
+
 const sel = document.getElementById("versionSelect")
 const loadingManager = new THREE.LoadingManager();
 function loadModel(url) {
@@ -82,7 +112,7 @@ function loadModel(url) {
         (gltf) => {
             model = gltf.scene.children[0];
             // Fix orientation & center
-            model.rotation.x -= Math.PI / 2;
+            model.rotation.x = steps[currentStep].rotationX ?? 0;
             centerModel();
             applyVersionVisibility(sel.value);
 
@@ -103,7 +133,12 @@ function loadModel(url) {
                     if ("roughness" in m) m.roughness = 0.9;
                     if ("metalness" in m) m.metalness = 0;
                 });
-            });
+            },
+        undefined,
+        (err) => {
+            console.error("Error loading model:", err);
+        }
+        );
 
             // Frame and apply colors
             frameModel();
@@ -130,6 +165,22 @@ function centerModel() {
 
     model.position.y -= (yMin) - mm(10);
 }
+
+function refreshData() {
+    const instructions = document.getElementById("instructions");
+    instructions.innerHTML = steps[currentStep].description;
+    // Remove old model if it exists
+    if (model) scene.remove(model);
+
+    // Load new model for the current step
+    loadModel(steps[currentStep].model);
+
+    // Enable/disable previous/next buttons
+    previousButton.disabled = currentStep === 0;
+    nextButton.disabled = currentStep === steps.length - 1;
+}
+
+refreshData();
 
 /* --------------------------------------------------------------------------
  * Framing
@@ -321,8 +372,6 @@ function animate() {
  * -------------------------------------------------------------------------- */
 initScene();
 initLighting();
-//addVersionDropdown();
-loadModel(fileLocation);
 
 /* --------------------------------------------------------------------------
  * Helpers
