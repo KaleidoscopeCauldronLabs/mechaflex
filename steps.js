@@ -14,7 +14,8 @@ export const steps = [
             <p>Use the color pickers on the left to set the colors of the frame and armor to match your kit.</p>
             <p><i>Note: Even if your frame is black, it is not recommend to set the frame color to pure black, as it makes it really hard to see details. A very dark gray (51,51,51) works well.</i></p>
             <p>The Mechaflex kit should have a paper copy of this parts list. Lay out each piece on your paper copy as you sort.</p>
-            <p>Be aware, some parts look very similar to others. Feel free to rotate and zoom in to see details of each part. </p>
+            <p>Be aware, some parts look very similar to others. Feel free to rotate and zoom in to see details of each part.</p>
+            <p>The arms and legs sections have some repeated parts, 2 in the 2nd column and 2 in the 3rd column of each.</p>
         ` },
     { title: "Step 2: Assemble the Head", model: "./models/02_head.glb", description: "all the text for step 2" },
 ];

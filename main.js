@@ -214,6 +214,15 @@ function getComponentName(obj) {
 function classifyByComponent(objOrName) {
     const compName =
         typeof objOrName === "string" ? objOrName : getComponentName(objOrName);
+    if (compName.includes("Sheet")) {
+        if (compName.includes("Frankie")) {
+            return "sheet-frankie"
+        }
+        if (compName.includes("Miles")) {
+            return "sheet-miles"
+        }
+        return "sheet"
+    }
     if (compName.includes("frame")) {
         if (compName.includes("frankie")) {
             return "frame-frankie"
@@ -284,6 +293,12 @@ function applyCurrentColors() {
 
             case "gray":
                 chosen = new THREE.Color('#919294');
+                break;
+
+            case "sheet":
+            case "sheet-frankie":
+            case "sheet-miles":
+                chosen = new THREE.Color('#000000');
                 break;
 
             default:
