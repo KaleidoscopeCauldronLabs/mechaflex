@@ -6,7 +6,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
  * Globals
  * -------------------------------------------------------------------------- */
 let scene, renderer, controls, model, ambientLight, directionalLight, directionalBackLight, pmrem, canvas;
-let camera = new THREE.PerspectiveCamera();
+let camera = new THREE.OrthographicCamera();
 
 
 /* --------------------------------------------------------------------------
@@ -52,12 +52,15 @@ function initScene() {
     const DPR_CAP = 1.3;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, DPR_CAP));
 
-    //renderer.setSize(window.innerWidth, window.innerHeight);
     window.addEventListener("resize", () => {
-        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-        camera.aspect = canvas.clientWidth/canvas.clientHeight;
+        const aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.left = -frustumSize * aspect / 2;
+        camera.right = frustumSize * aspect / 2;
+        camera.top = frustumSize / 2;
+        camera.bottom = -frustumSize / 2;
         camera.updateProjectionMatrix();
-    })
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    });
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.5;
     renderer.shadowMap.enabled = true;
@@ -69,8 +72,18 @@ function initScene() {
     container.appendChild(canvas);
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
-    camera = new THREE.PerspectiveCamera(60,canvas.clientWidth / canvas.clientHeight, 1, 5000);
-    camera.position.set(0, 10, 20);
+const aspect = canvas.clientWidth / canvas.clientHeight;
+const frustumSize = 200; // Adjust for your scene scale
+camera = new THREE.OrthographicCamera(
+    -frustumSize * aspect / 2, // left
+    frustumSize * aspect / 2,  // right
+    frustumSize / 2,           // top
+    -frustumSize / 2,          // bottom
+    1,                         // near
+    5000                       // far
+);
+camera.position.set(0, 10, 20);
+camera.lookAt(0, 0, 0);
 
     pmrem = new THREE.PMREMGenerator(renderer);
     controls = new OrbitControls(camera, renderer.domElement);
@@ -191,11 +204,14 @@ function frameModel() {
     const sphere = box.getBoundingSphere(new THREE.Sphere());
     const center = sphere.center;
     const radius = Math.max(sphere.radius, 0.001);
+    const tiltX = steps[currentStep].tiltX ?? 100;
+    const tiltY = steps[currentStep].tiltY ?? 0; 
 
     controls.target.copy(center);
-    camera.position.set(center.x+100, center.y, center.z + radius * 2.2);
+    camera.position.set(center.x + tiltX, center.y + tiltY, center.z + radius * 2.2);
     camera.near = Math.max(0.01, radius / 100);
     camera.far = Math.max(1000, radius * 10);
+    camera.zoom = steps[currentStep].zoom ?? 1; 
     camera.updateProjectionMatrix();
     controls.update();
 }
