@@ -37,6 +37,20 @@ stepMenu.addEventListener("change", (e) => {
     refreshData();
 });
 
+const sections = {};
+steps.forEach((step, i) => {
+    if (!sections[step.section]) sections[step.section] = [];
+    sections[step.section].push({ index: i, title: step.title });
+});
+
+stepMenu.innerHTML = Object.entries(sections).map(([section, items]) =>
+    `<optgroup label="${section}">
+        ${items.map(item => `<option value="${item.index}">${item.title}</option>`).join("")}
+    </optgroup>`
+).join("");
+stepMenu.value = currentStep;
+
+
 /* --------------------------------------------------------------------------
  * Scene / Camera / Renderer Setup
  * -------------------------------------------------------------------------- */
@@ -126,6 +140,7 @@ function loadModel(url) {
             model = gltf.scene.children[0];
             // Fix orientation & center
             model.rotation.x = steps[currentStep].rotationX ?? 0;
+            model.rotation.y = steps[currentStep].rotationY ?? 0;
             centerModel();
             applyVersionVisibility(sel.value);
 
@@ -181,16 +196,12 @@ function centerModel() {
 
 function refreshData() {
     const instructions = document.getElementById("instructions");
-    instructions.innerHTML = steps[currentStep].description;
-    // Remove old model if it exists
-    if (model) scene.remove(model);
-
-    // Load new model for the current step
-    loadModel(steps[currentStep].model);
-
-    // Enable/disable previous/next buttons
-    previousButton.disabled = currentStep === 0;
-    nextButton.disabled = currentStep === steps.length - 1;
+    instructions.innerHTML = steps[currentStep].description; //update words
+    if (model) scene.remove(model); //remove old model
+    loadModel(steps[currentStep].model); //load the model for the current step
+    document.getElementById("stepMenu").value = currentStep; //make navigation match current step
+    previousButton.disabled = currentStep === 0; //previous button disable at start
+    nextButton.disabled = currentStep === steps.length - 1; //next button disable at end
 }
 
 refreshData();
