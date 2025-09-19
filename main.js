@@ -200,6 +200,7 @@ function refreshData() {
     if (model) scene.remove(model); //remove old model
     loadModel(steps[currentStep].model); //load the model for the current step
     document.getElementById("stepMenu").value = currentStep; //make navigation match current step
+    instructions.scrollTop = 0; //scroll instructions to top
     previousButton.disabled = currentStep === 0; //previous button disable at start
     nextButton.disabled = currentStep === steps.length - 1; //next button disable at end
 }
@@ -274,6 +275,9 @@ function classifyByComponent(objOrName) {
     if (compName.includes("gray")) {
         return "gray"
     }
+    if (compName.includes("Arrow")) {
+        return "arrow"
+    }
     return "other"
 }
 
@@ -285,8 +289,9 @@ function classifyByComponent(objOrName) {
  * -------------------------------------------------------------------------- */
 const armorInput = document.getElementById("armorColor");
 const frameInput = document.getElementById("frameColor");
+const arrowInput = document.getElementById("arrowColor");
 
-[armorInput, frameInput].forEach((input) => {
+[armorInput, frameInput, arrowInput].forEach((input) => {
     input.addEventListener("input", applyCurrentColors);
 });
 
@@ -295,6 +300,7 @@ function applyCurrentColors() {
 
     const armorColor = new THREE.Color(armorInput.value);
     const frameColor = new THREE.Color(frameInput.value);
+    const arrowColor = new THREE.Color(arrowInput.value);
 
     model.traverse((obj) => {
         if (!obj.isMesh) return;
@@ -312,6 +318,10 @@ function applyCurrentColors() {
             case "frame-frankie":
             case "frame-miles":
                 chosen = frameColor;
+                break;
+
+            case "arrow":
+                chosen = arrowColor;
                 break;
 
             case "brown":

@@ -8,7 +8,7 @@
             <p>This manual was designed to help you build your new Mechaflex model utilizing 3D models. Right now you should see a fully assembled Mechaflex with hand storage and tool storage.</p>
             <p>On desktop,left-click to rotate the view, right-click to pan, and use the scroll wheel to zoom in and out.</p>
             <p>On mobile, use one finger to rotate the view, two fingers to pan, and pinch to zoom in and out. It is <b>strongly</b> recommended to use landscape view on mobile devices.</p>
-            <p>In the upper left you will find the controls panel. It contains the navigation dropdown where you can jump to a different step, as well as a selector for the background color, model colors, and version.</p>
+            <p>In the upper left you will find the controls panel. It contains the navigation dropdown where you can jump to a different step, as well as a selector for the background color, model color, arrow color, and version.</p>
             <p>There are buttons at the bottom to navigate to the previous or next step. (On mobile you might need to scroll down.)</p>
             <p>Refreshing the page will reset all colors and return you to this step. To reset the view of a step without resetting colors, go to the previous or next step and then return.</p>
             <p>Click the "Next" button at the bottom to continue.</p>
