@@ -78,133 +78,133 @@ export const steps = [
         ` },
 
     { title: "Upper Arm a", 
-      model: "./models/.glb", 
+      model: "./models/upper_arm_a.glb", 
       tiltX: 350, 
       description: `
             <h2>Upper Arm a</h2>
             <p></p>
         ` },
     { title: "Upper Arm b", 
-      model: "./models/.glb", 
+      model: "./models/upper_arm_b.glb", 
       tiltX: 350, 
       description: `
             <h2>Upper Arm b</h2>
             <p></p>
         ` },
     { title: "Lower Arm", 
-      model: "./models/.glb", 
+      model: "./models/lower_arm.glb", 
       tiltX: 350, 
       description: `
             <h2>Lower Arm</h2>
             <p></p>
         ` },
     { title: "Elbow", 
-      model: "./models/.glb", 
+      model: "./models/elbow.glb", 
       tiltX: 350, 
       description: `
             <h2>Elbow</h2>
             <p></p>
         ` },
     { title: "Shoulder a", 
-      model: "./models/.glb", 
+      model: "./models/shoulder_a.glb", 
       tiltX: 350, 
       description: `
             <h2>Shoulder a</h2>
             <p></p>
         ` },
     { title: "Shoulder b", 
-      model: "./models/.glb", 
+      model: "./models/shoulder_b.glb", 
       tiltX: 350, 
       description: `
             <h2>Shoulder b</h2>
             <p></p>
         ` },
     { title: "Hands", 
-      model: "./models/.glb", 
+      model: "./models/hands.glb", 
       tiltX: 350, 
       description: `
             <h2>Hands</h2>
             <p></p>
         ` },
     { title: "Attach Arms", 
-      model: "./models/.glb", 
+      model: "./models/attach_arms.glb", 
       tiltX: 350, 
       description: `
             <h2>Attach Arms</h2>
             <p></p>
         ` },
     { title: "Upper Leg a", 
-      model: "./models/.glb", 
+      model: "./models/upper_leg_a.glb", 
       tiltX: 350, 
       description: `
             <h2>Upper Leg a</h2>
             <p></p>
         ` },
     { title: "Upper Leg b", 
-      model: "./models/.glb", 
+      model: "./models/upper_leg_b.glb", 
       tiltX: 350, 
       description: `
             <h2>Upper Leg b</h2>
             <p></p>
         ` },
     { title: "Lower Leg", 
-      model: "./models/.glb", 
+      model: "./models/lower_leg.glb", 
       tiltX: 350, 
       description: `
             <h2>Lower Leg</h2>
             <p></p>
         ` },
     { title: "Knee", 
-      model: "./models/.glb", 
+      model: "./models/knee.glb", 
       tiltX: 350, 
       description: `
             <h2>Knee</h2>
             <p></p>
         ` },
     { title: "Thigh", 
-      model: "./models/.glb", 
+      model: "./models/thigh.glb", 
       tiltX: 350, 
       description: `
             <h2>Thigh</h2>
             <p></p>
         ` },
     { title: "Feet", 
-      model: "./models/.glb", 
+      model: "./models/feet.glb", 
       tiltX: 350, 
       description: `
             <h2>Feet</h2>
             <p></p>
         ` },
     { title: "Attach Legs", 
-      model: "./models/.glb", 
+      model: "./models/attach_legs.glb", 
       tiltX: 350, 
       description: `
             <h2>Attach Legs</h2>
             <p></p>
         ` },
     { title: "Stand", 
-      model: "./models/.glb", 
+      model: "./models/stand.glb", 
       tiltX: 350, 
       description: `
             <h2>Stand</h2>
             <p></p>
         ` },
     { title: "Stand Adapter", 
-      model: "./models/.glb", 
+      model: "./models/stand_adapter.glb", 
       tiltX: 350, 
       description: `
             <h2>Stand Adapter</h2>
             <p></p>
         ` },
     { title: "Attach Stand", 
-      model: "./models/.glb", 
+      model: "./models/attach_stand.glb", 
       tiltX: 350, 
       description: `
             <h2>Attach Stand</h2>
             <p></p>
         ` },
     { title: "Tools", 
-      model: "./models/.glb", 
+      model: "./models/tools.glb", 
       tiltX: 350, 
       description: `
             <h2>Tools</h2>
