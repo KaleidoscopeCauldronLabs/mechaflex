@@ -5,13 +5,12 @@
         tiltY: 90, 
         description: `
             <h2>Introduction</h2>
-            <p>This guide was designed to help you build your new Mechaflex model using 3D models. Right now you should see a fully assembled Mechaflex with hand storage and tool storage.</p>
+            <p>This guide was designed to help you build your new Mechaflex model using 3D space. Right now you should see a fully assembled Mechaflex with hand storage and tool storage.</p>
             <p>On desktop,left-click to rotate the view, right-click to pan, and use the scroll wheel to zoom in and out.</p>
             <p>On mobile, use one finger to rotate the view, two fingers to pan, and pinch to zoom in and out. It is <b>strongly</b> recommended to use landscape view on mobile devices.</p>
-            <p>In the upper left you will find the controls panel. It contains the navigation dropdown where you can jump to a different step, as well as a selector for the background color, model color, arrow color, and version.</p>
-            <p>There are buttons at the bottom to navigate to the previous or next step. (On mobile you might need to scroll down.)</p>
-            <p>Refreshing the page will reset all colors and return you to this step. To reset the view of a step without resetting colors, go to the previous or next step and then return.</p>
-            <p>Click the "Next" button at the bottom to continue.</p>
+            <p>If you resize the window or switch from portrait to landscape mode, please refresh the page to fix the layout.</p>
+            <p>Refreshing the page anytime will reset all colors and return you to this step.</p>
+            <p>Click the "Next" button at the bottom of the page to continue.</p>
         ` },
     { title: "Tips", 
         section: "Getting Started",
@@ -23,7 +22,6 @@
             <p>All steps will have an exploded view with arrows of the current step on the left/front, along with what it looks like when complete on the right/back.</p>
             <p>For many steps, rotating around and/or zooming in on the model will help you better see how the pieces fit together.</p>
             <p>Some parts have a tight fit and require a bit of force to snap together. If you are having trouble getting a piece to fit, you can <b><i>gently</i></b> tap it with a hammer or back of a screwdriver. Before resorting to this, make <b><i>absolutely sure</i></b> that you have the correct parts and correct orientation or you might break things.</p>
-            <p>The words are usually not necessary for the building steps, but they may help clarify things if you are confused.</p>
             <p>If you have any problems, questions, or suggestions on any part of this guide, or break or lose a piece and need a replacement, please contact us at <a href="mailto:kaleidoscopecauldronlabs@gmail.com">kaleidoscopecauldronlabs@gmail.com</a>.</p>
         ` },
     { title: "Parts List", 

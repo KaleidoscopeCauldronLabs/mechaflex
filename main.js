@@ -18,6 +18,10 @@ nextButton.addEventListener("click", () => {
      currentStep += 1;
      refreshData();
  });
+const resetViewButton = document.getElementById("resetViewButton");
+resetViewButton.addEventListener("click", () => {
+    refreshData(); // Reloads the current model and resets the view
+});
 const previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", () => {
      currentStep -= 1;
