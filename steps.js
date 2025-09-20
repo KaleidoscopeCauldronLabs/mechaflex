@@ -5,7 +5,7 @@
         tiltY: 90, 
         description: `
             <h2>Introduction</h2>
-            <p>This manual was designed to help you build your new Mechaflex model utilizing 3D models. Right now you should see a fully assembled Mechaflex with hand storage and tool storage.</p>
+            <p>This guide was designed to help you build your new Mechaflex model using 3D models. Right now you should see a fully assembled Mechaflex with hand storage and tool storage.</p>
             <p>On desktop,left-click to rotate the view, right-click to pan, and use the scroll wheel to zoom in and out.</p>
             <p>On mobile, use one finger to rotate the view, two fingers to pan, and pinch to zoom in and out. It is <b>strongly</b> recommended to use landscape view on mobile devices.</p>
             <p>In the upper left you will find the controls panel. It contains the navigation dropdown where you can jump to a different step, as well as a selector for the background color, model color, arrow color, and version.</p>
