@@ -7,6 +7,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
  * -------------------------------------------------------------------------- */
 let scene, renderer, controls, model, ambientLight, directionalLight, directionalBackLight, pmrem, canvas;
 let camera = new THREE.OrthographicCamera();
+let _loadGen = 0;
 
 
 /* --------------------------------------------------------------------------
@@ -135,12 +136,14 @@ function initLighting() {
 const sel = document.getElementById("versionSelect")
 const loadingManager = new THREE.LoadingManager();
 function loadModel(url) {
+    const gen = _loadGen;
     // Use the shared manager so the overlay tracks this too
     const loader = new GLTFLoader(loadingManager);
 
     loader.load(
         url,
         (gltf) => {
+            if (gen !== _loadGen) return; // stale load — discard
             model = gltf.scene.children[0];
             // Fix orientation & center
             model.rotation.x = steps[currentStep].rotationX ?? 0;
@@ -165,12 +168,7 @@ function loadModel(url) {
                     if ("roughness" in m) m.roughness = 0.9;
                     if ("metalness" in m) m.metalness = 0;
                 });
-            },
-        undefined,
-        (err) => {
-            console.error("Error loading model:", err);
-        }
-        );
+            });
 
             // Frame and apply colors
             frameModel();
@@ -179,11 +177,10 @@ function loadModel(url) {
             // Warm up shaders so first frame looks crisp before we hide loader
             renderer.compile(scene, camera);
             window.model = model;
-            dumpMeshNames();
         },
-        // Fine-grained % for GLB fetch (if server provides totals)
         undefined,
         (err) => {
+            console.error("Error loading model:", err);
         }
     );
 }
@@ -199,9 +196,13 @@ function centerModel() {
 }
 
 function refreshData() {
+    _loadGen++; //invalidate any in-flight loads
     const instructions = document.getElementById("instructions");
     instructions.innerHTML = steps[currentStep].description; //update words
-    if (model) scene.remove(model); //remove old model
+    if (model) {
+        scene.remove(model); //remove old model
+        model = null;
+    }
     loadModel(steps[currentStep].model); //load the model for the current step
     document.getElementById("stepMenu").value = currentStep; //make navigation match current step
     instructions.scrollTop = 0; //scroll instructions to top
